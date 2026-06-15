@@ -28,4 +28,3 @@ export default function RootLayout({ children }) {
 }
 
 
-// 57/1-4, parveen pearl residence, east raja bazar, tejgaon thana, near panthopath signal, dhaka 1215

@@ -2,6 +2,7 @@
 import { UpdateUserModal } from '@/component/UpdateUser';
 import { authClient } from '@/lib/auth-client';
 import { Avatar, Card } from '@heroui/react';
+import { redirect } from 'next/dist/server/api-utils';
 
 
 const ProfilePage = () => {
@@ -9,6 +10,10 @@ const ProfilePage = () => {
     const userData = authClient.useSession()
       // console.log(userData)
       const user= userData.data?.user
+
+    //   if(!user){
+    //     redirect('/signin')
+    //   }
 
     return (
         <div>
@@ -20,7 +25,7 @@ const ProfilePage = () => {
 
                       <h2 className='text-xl font-bold'>{user?.name}</h2>
                       <p className='text-muted'>{user?.email}</p>
-                      <UpdateUserModal></UpdateUserModal>
+                      <UpdateUserModal/>
             </Card>
         </div>
     );

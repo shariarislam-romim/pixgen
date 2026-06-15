@@ -1,7 +1,6 @@
 "use client";
 
 import { authClient } from "@/lib/auth-client";
-import {Envelope} from "@gravity-ui/icons";
 import {Button, Input, Label, Modal, Surface, TextField} from "@heroui/react";
 import { BiEdit, BiUser } from "react-icons/bi";
 
@@ -16,12 +15,12 @@ export function UpdateUserModal() {
 
         await authClient.updateUser({
             name,
-            image
+            image,
         })
     }
   return (
     <Modal>
-      <Button variant="secondary"><BiEdit></BiEdit> Update Profile</Button>
+      <Button variant="secondary"><BiEdit/> Update Profile</Button>
       <Modal.Backdrop>
         <Modal.Container placement="auto">
           <Modal.Dialog className="sm:max-w-md">
@@ -37,7 +36,7 @@ export function UpdateUserModal() {
             </Modal.Header>
             <Modal.Body className="p-6">
               <Surface variant="default">
-                <form className="flex flex-col gap-4">
+                <form  onSubmit={onSubmit} className="flex flex-col gap-4">
                   <TextField className="w-full" name="name" type="text" variant="secondary">
                     <Label>Name</Label>
                     <Input placeholder="Enter your name" />
@@ -51,7 +50,7 @@ export function UpdateUserModal() {
               <Button slot="close" variant="secondary">
                 Cancel
               </Button>
-              <Button onSubmit={onSubmit} slot="close" type="submit">Save</Button>
+              <Button slot="close" type="submit">Save</Button>
             </Modal.Footer>
                 </form>
               </Surface>
